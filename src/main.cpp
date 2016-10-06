@@ -4,6 +4,8 @@
  * then off for one second. repeatedly.
  */
 
+#ifndef UNIT_TEST
+
 #include "Arduino.h"
 
 void setup()
@@ -23,3 +25,4 @@ void loop()
 	// wait for a second
 	delay(1000);
 }
+#endif
