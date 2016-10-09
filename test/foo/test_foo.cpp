@@ -1,13 +1,16 @@
 #ifdef UNIT_TEST
 #include "unity.h"
+#include "Sample.h"
 #include <stdio.h>
 
+Sample *sample;
 int counter = 100;
 
 // setUp() runs before each RUN_TEST().
 void setUp(void)
 {
 	counter = 1;
+	sample = new Sample();
 	printf("Setup: counter=%d.  ", counter);
 }
 
@@ -15,6 +18,7 @@ void setUp(void)
 void tearDown(void)
 {
 	counter++;
+	delete sample;
 	printf("Tear down: counter=%d.  ", counter);
 }
 
@@ -27,7 +31,7 @@ void test_foo1()
 void test_foo2()
 {
 	// This test should pass.
-	TEST_ASSERT_EQUAL_INT(counter, 1);
+	TEST_ASSERT_EQUAL_INT(sample->sampleMethod(counter), 2);
 }
 
 int main()

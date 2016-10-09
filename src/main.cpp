@@ -6,12 +6,16 @@
 
 #ifndef UNIT_TEST
 
+#include "Sample.h"
 #include "Arduino.h"
+
+Sample sample;
 
 void setup()
 {
 	// initialize LED digital pin as an output.
 	pinMode(LED_BUILTIN, OUTPUT);
+	sample = Sample();
 }
 
 void loop()
